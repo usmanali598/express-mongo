@@ -9,9 +9,19 @@ app.use(bodyparser.urlencoded({
     extended: true
 }));
 
+app.set('views', path.join(__dirname, '/views/'))
+
+app.engine("hbs", expressHandlerbars({
+    extname: 'hbs',
+    defaultLayout: 'mainlayout',
+    layoutsDir: __dirname + '/views/layouts'
+}))
+
+app.set("view engine", "hbs")
+
 
 app.use('/', (req, res) => {
-    res.send('<h1>Hello</h1>')
+    res.render('index', {})
 })
 
 app.listen('3000', () => {
