@@ -5,6 +5,8 @@ const path = require('path');
 const expressHandlerbars = require('express-handlebars');
 const bodyparser = require('body-parser');
 
+const clientController = require('./controllers/clients');
+
 app.use(bodyparser.urlencoded({
     extended: true
 }));
@@ -20,9 +22,7 @@ app.engine("hbs", expressHandlerbars({
 app.set("view engine", "hbs")
 
 
-app.use('/', (req, res) => {
-    res.render('index', {})
-})
+app.use('/client', clientController)
 
 app.listen('3000', () => {
     console.log('app is on 3000')

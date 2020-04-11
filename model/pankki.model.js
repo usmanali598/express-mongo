@@ -12,4 +12,4 @@ const PankkiSchema = new mongoose.Schema({
     }
 });
 
-mongoose.model("PersonalInfo", PankkiSchema)
+mongoose.model("customers", PankkiSchema)
